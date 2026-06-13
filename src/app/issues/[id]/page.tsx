@@ -242,11 +242,11 @@ export default function IssueDetailPage({
                     if (e.key === 'Escape') setEditingField(null);
                   }}
                 />
-                <div className="flex gap-2 mt-2">
-                  <button onClick={handleSaveTitle} className="text-xs text-primary hover:underline cursor-pointer">
-                    Save
+                <div className="flex gap-2 mt-3">
+                  <button onClick={handleSaveTitle} className="px-3 py-1.5 text-sm bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors cursor-pointer font-medium">
+                    Save Title
                   </button>
-                  <button onClick={() => setEditingField(null)} className="text-xs text-muted hover:underline cursor-pointer">
+                  <button onClick={() => setEditingField(null)} className="px-3 py-1.5 text-sm border border-border text-foreground rounded-lg hover:bg-sidebar-hover transition-colors cursor-pointer font-medium">
                     Cancel
                   </button>
                 </div>
@@ -343,11 +343,11 @@ export default function IssueDetailPage({
                     rows={5}
                     autoFocus
                   />
-                  <div className="flex gap-2 mt-2">
-                    <button onClick={handleSaveDescription} className="text-xs text-primary hover:underline cursor-pointer">
-                      Save
+                  <div className="flex gap-2 mt-3">
+                    <button onClick={handleSaveDescription} className="px-3 py-1.5 text-sm bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors cursor-pointer font-medium">
+                      Save Description
                     </button>
-                    <button onClick={() => setEditingField(null)} className="text-xs text-muted hover:underline cursor-pointer">
+                    <button onClick={() => setEditingField(null)} className="px-3 py-1.5 text-sm border border-border text-foreground rounded-lg hover:bg-sidebar-hover transition-colors cursor-pointer font-medium">
                       Cancel
                     </button>
                   </div>

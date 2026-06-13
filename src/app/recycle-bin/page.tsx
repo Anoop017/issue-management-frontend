@@ -273,6 +273,9 @@ export default function RecycleBinPage({
           onConfirm={handleBulkRestore}
           onCancel={() => setShowBulkRestore(false)}
           loading={bulkRestoreLoading}
+          confirmText="Restore"
+          loadingText="Restoring..."
+          isDanger={false}
         />
       )}
 

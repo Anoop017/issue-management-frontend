@@ -6,6 +6,9 @@ interface DeleteConfirmProps {
   onConfirm: () => void;
   onCancel: () => void;
   loading?: boolean;
+  confirmText?: string;
+  loadingText?: string;
+  isDanger?: boolean;
 }
 
 export default function DeleteConfirm({
@@ -14,6 +17,9 @@ export default function DeleteConfirm({
   onConfirm,
   onCancel,
   loading,
+  confirmText = 'Delete',
+  loadingText = 'Deleting...',
+  isDanger = true,
 }: DeleteConfirmProps) {
   return (
     <div
@@ -36,9 +42,13 @@ export default function DeleteConfirm({
           <button
             onClick={onConfirm}
             disabled={loading}
-            className="px-4 py-2 text-sm bg-danger text-white rounded-lg hover:bg-danger-hover disabled:opacity-50 transition-colors cursor-pointer"
+            className={`px-4 py-2 text-sm text-white rounded-lg transition-colors cursor-pointer disabled:opacity-50 ${
+              isDanger
+                ? 'bg-danger hover:bg-danger-hover'
+                : 'bg-primary hover:bg-primary/90'
+            }`}
           >
-            {loading ? 'Deleting...' : 'Delete'}
+            {loading ? loadingText : confirmText}
           </button>
         </div>
       </div>
