@@ -210,14 +210,23 @@ function IssuesContent() {
 
         {/* Filters */}
         <div className="flex items-start justify-between mb-6">
-          <IssueFilters
-            search={search}
-            status={status}
-            priority={priority}
-            onSearchChange={setSearch}
-            onStatusChange={setStatus}
-            onPriorityChange={setPriority}
-          />
+          <div className="flex items-center gap-3">
+            <IssueFilters
+              search={search}
+              status={status}
+              priority={priority}
+              onSearchChange={setSearch}
+              onStatusChange={setStatus}
+              onPriorityChange={setPriority}
+            />
+            <button
+              onClick={() => queryClient.invalidateQueries({ queryKey: ['issues'] })}
+              className="p-2 text-muted hover:text-foreground border border-border rounded-lg hover:bg-sidebar-hover transition-colors cursor-pointer shrink-0 mt-0.5"
+              title="Refresh issues"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+            </button>
+          </div>
           {selectedIds.length > 0 && (
             <button
               onClick={() => setShowBulkDelete(true)}

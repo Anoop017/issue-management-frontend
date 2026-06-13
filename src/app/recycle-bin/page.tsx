@@ -139,9 +139,18 @@ export default function RecycleBinPage({
   return (
     <div className="p-8">
       <div className="flex items-start justify-between mb-8">
-        <div>
-          <h1 className="text-2xl font-bold text-foreground">Recycle Bin</h1>
-          <p className="text-muted mt-1">Manage and recover deleted issues.</p>
+        <div className="flex items-center gap-4">
+          <div>
+            <h1 className="text-2xl font-bold text-foreground">Recycle Bin</h1>
+            <p className="text-muted mt-1">Manage and recover deleted issues.</p>
+          </div>
+          <button
+            onClick={() => queryClient.invalidateQueries({ queryKey: ['deleted-issues'] })}
+            className="p-2 text-muted hover:text-foreground border border-border rounded-lg hover:bg-sidebar-hover transition-colors cursor-pointer mt-1"
+            title="Refresh recycle bin"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+          </button>
         </div>
         {selectedIds.length > 0 && (
           <div className="flex items-center gap-3 shrink-0">
