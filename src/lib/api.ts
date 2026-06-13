@@ -9,7 +9,7 @@ import type {
   UpdateIssueData,
 } from './types';
 
-const API_BASE = '/api';
+const API_BASE = 'https://issue-management-backend.onrender.com';
 
 async function fetchAPI<T>(url: string, options?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE}${url}`, {
