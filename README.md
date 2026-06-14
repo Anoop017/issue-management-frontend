@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Issue Management Platform - Frontend
 
-## Getting Started
+This is the frontend application for the Minimal Issue Management Platform. It provides a clean, responsive, and functional interface to manage issues, view details, participate in discussions, and run automated AI-driven analysis.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Frontend Application**: [https://issue-management-platform.netlify.app](https://issue-management-platform.netlify.app)
+- **Backend API URL**: [https://issue-management-backend.onrender.com](https://issue-management-backend.onrender.com)
+
+## 💻 Tech Stack
+
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript
+- **Styling**: TailwindCSS
+- **State Management & Data Fetching**: React Query & Fetch API
+- **Notifications**: React Hot Toast
+
+## ✨ Features
+
+- **Issue Management**: Create, view, update, and manage project issues.
+- **Detailed Views**: Dedicated issue pages showing full metadata, descriptions, priority, and status.
+- **Discussions**: Add and view discussion threads/comments on individual issues.
+- **AI Analysis**: One-click generation of automated insights (Root Causes, Recommended Actions, Severity risk assessment) powered by Gemini AI integration on the backend.
+- **Bulk Actions & Recycle Bin**: Soft delete, bulk restore, and permanent delete issues using a dedicated recycle bin.
+
+## ⚙️ Environment Variables
+
+To run this project locally, create a `.env` file in the root directory. The following environment variables are supported:
+
+```env
+# The base URL of the backend API (defaults to localhost:3000 if omitted)
+# Set this to the live backend URL to test against production data:
+BACKEND_URL=https://issue-management-backend.onrender.com
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+*(Note: The Gemini API credentials and PostgreSQL database connection strings are configured strictly on the backend application.)*
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Setup and Execution
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Anoop017/issue-management-frontend.git
+   cd issue-management-frontend
+   ```
 
-## Learn More
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Set up environment variables**:
+   Create a `.env` file in the root directory and add the `BACKEND_URL` as shown above.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. **Open the app**:
+   Navigate to [http://localhost:3000](http://localhost:3000) in your browser to see the application. (API requests will be proxied automatically via Next.js rewrites to avoid CORS issues).
 
-## Deploy on Vercel
+## 📁 Project Structure Highlights
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app/` - Next.js App Router pages (Issues list, details, Recycle bin).
+- `src/components/` - Reusable UI components (`Sidebar`, `IssueForm`, `CommentThread`, `AiAnalysis`).
+- `src/lib/` - API client definitions and shared TypeScript interfaces.
+- `src/providers/` - React Query provider wrapper.
